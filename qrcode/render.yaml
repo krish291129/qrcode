@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: photo-album-qr
+    env: python
+    plan: free
+    region: singapore
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: SECRET_KEY
+        value: any-secret-key-here
