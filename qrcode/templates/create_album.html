@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Create Album</h3>
+<form method="post" enctype="multipart/form-data">
+  <div class="mb-3">
+    <label>Album Name (optional)</label>
+    <input class="form-control" name="album_name">
+  </div>
+  <div class="mb-3">
+    <label>Upload Photos (multiple)</label>
+    <input class="form-control" type="file" name="photos" multiple accept="image/*">
+  </div>
+  <button class="btn btn-success">Create Album</button>
+</form>
+{% endblock %}

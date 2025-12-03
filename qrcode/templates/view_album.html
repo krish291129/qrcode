@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center">
+  <h3>{{ album.name }}</h3>
+  <div>
+    {% if qr_url %}
+      <a class="btn btn-outline-secondary" href="{{ qr_url }}" target="_blank">Open QR</a>
+    {% endif %}
+    <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Back</a>
+  </div>
+</div>
+<hr>
+<div class="row">
+  {% for p in photos %}
+    <div class="col-md-3 mb-3">
+      <div class="card">
+        <img src="{{ p.url }}" class="card-img-top" style="height:200px; object-fit:cover;">
+        <div class="card-body">
+          <a class="btn btn-sm btn-outline-primary" href="{{ p.url }}" target="_blank">Open</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+{% if qr_url %}
+<hr>
+<h5>QR Code for this album</h5>
+<img src="{{ qr_url }}" alt="QR Code" style="max-width:200px;">
+<p>Scan the QR to open this album</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="text-center">
+  <h1>Welcome to Photo Album QR</h1>
+  <p>Create and share photo albums with QR codes</p>
+  {% if not session.get('user_id') %}
+    <a class="btn btn-primary" href="{{ url_for('register') }}">Get Started</a>
+  {% else %}
+    <a class="btn btn-primary" href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+  {% endif %}
+</div>
+{% endblock %}
